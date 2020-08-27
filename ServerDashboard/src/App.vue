@@ -45,10 +45,10 @@ import Vue from 'vue';
 //                 </div>
 //               </div>`,
 // });
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
-import ServerDetails from './components/ServerDetails.vue';
-import Servers from './components/Servers.vue';
+import Header from './components/shared/Header.vue';
+import Footer from './components/shared/Footer.vue';
+import ServerDetails from './components/server/ServerDetails.vue';
+import Servers from './components/server/Servers.vue';
 export default {
   components: {
     'app-header': Header,
