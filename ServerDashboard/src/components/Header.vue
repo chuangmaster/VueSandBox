@@ -2,13 +2,12 @@
   <div class="row">
     <div class="col-xs-12">
       <header>
-        <h1>Server Status</h1>
+        <h1>Server Status Dashboard</h1>
       </header>
     </div>
   </div>
 </template>
 
 <script>
-import Vue from "vue";
 export default {};
 </script>
