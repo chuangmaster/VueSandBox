@@ -10,7 +10,8 @@
         <!-- <app-user-detail v-bind:name="name"></app-user-detail> -->
         <app-user-detail
           :name="name"
-          @resetName="name = $event"
+          @nameWasReseted="name = $event"
+          :resetFn="resetName"
         ></app-user-detail>
       </div>
       <div class="col-xs-12 col-sm-6">
@@ -33,9 +34,9 @@ export default {
       let that = this;
       that.name = "Xavier";
     },
-    resetName(name) {
+    resetName() {
       let that = this;
-      that.name = name;
+      that.name = "Max";
     },
   },
   components: {
