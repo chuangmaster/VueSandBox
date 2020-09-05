@@ -3,7 +3,7 @@
     <h3>You may view the User Details here</h3>
     <p>Many Details</p>
     <p>User Name: {{ name }}</p>
-
+    <p>User age is : {{ userAge }}</p>
     <p>Reverse User Name: {{ exchangeName() }}</p>
     <button @click="resetName">reset</button>
     <button @click="resetFn()">resetFn</button>
@@ -17,6 +17,7 @@ export default {
       type: String,
     },
     resetFn: Function,
+    userAge: Number,
   },
   methods: {
     exchangeName() {
