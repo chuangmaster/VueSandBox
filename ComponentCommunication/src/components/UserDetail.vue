@@ -3,7 +3,7 @@
     <h3>You may view the User Details here</h3>
     <p>Many Details</p>
     <p>User Name: {{ name }}</p>
-    <p>User age is : {{ userAge }}</p>
+    <p>User age is : {{ age }}</p>
     <p>Reverse User Name: {{ exchangeName() }}</p>
     <button @click="resetName">reset</button>
     <button @click="resetFn()">resetFn</button>
@@ -11,7 +11,14 @@
 </template>
 
 <script>
+import { eventBus } from "../main";
+
 export default {
+  data() {
+    return {
+      age: this.userAge,
+    };
+  },
   props: {
     name: {
       type: String,
@@ -29,6 +36,12 @@ export default {
       that.name = "Max";
       that.$emit("nameWasReseted", that.name);
     },
+  },
+  created() {
+    eventBus.$on("wasEditedAge", (age) => {
+      let that = this;
+      that.age = age;
+    });
   },
 };
 </script>

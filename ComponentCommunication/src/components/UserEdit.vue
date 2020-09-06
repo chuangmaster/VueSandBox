@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { eventBus } from "../main";
 export default {
   data: function () {
     return {
@@ -26,7 +27,8 @@ export default {
       let that = this;
       //that.userAge = 30; //Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop's value.
       that.age = 30;
-      that.$emit("wasEditedAge", that.age);
+      //that.$emit("wasEditedAge", that.age);
+      eventBus.$emit("wasEditedAge", that.age);
     },
   },
 };
