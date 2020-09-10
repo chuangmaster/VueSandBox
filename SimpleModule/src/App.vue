@@ -7,7 +7,11 @@
         <button @click="componentName = 'appAuthor'">appAuthor</button>
         <p>{{ componentName }}</p>
         <hr />
-        <component :is="componentName"><p>default content</p></component>
+        <keep-alive>
+          <component :is="componentName"><p>default content</p></component>
+        </keep-alive>
+        <!-- if you dont put component tag in keep-alive tag, it will be destroyed when switch component-->
+        <!-- <component :is="componentName"><p>default content</p></component> -->
         <!-- <appQuote>
           <h1 slot="title">A wonderful Quote!</h1>
           <p>A wonderful Quote!</p>
