@@ -3,8 +3,8 @@
     <app-header></app-header>
     <hr />
     <div class="row">
-      <app-servers></app-servers>
-      <app-server-details></app-server-details>
+      <app-servers @showDetail="showDetail($event)"></app-servers>
+      <app-server-details :server="server"></app-server-details>
     </div>
     <hr />
     <app-footer></app-footer>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Vue from 'vue';
+import Vue from "vue";
 // Vue.component('app-header', {
 //   data: function () {
 //     return {};
@@ -45,16 +45,27 @@ import Vue from 'vue';
 //                 </div>
 //               </div>`,
 // });
-import Header from './components/shared/Header.vue';
-import Footer from './components/shared/Footer.vue';
-import ServerDetails from './components/server/ServerDetails.vue';
-import Servers from './components/server/Servers.vue';
+import Header from "./components/shared/Header.vue";
+import Footer from "./components/shared/Footer.vue";
+import ServerDetails from "./components/server/ServerDetails.vue";
+import Servers from "./components/server/Servers.vue";
 export default {
+  data() {
+    return {
+      server: { id: 0, status: "unknown" },
+    };
+  },
   components: {
-    'app-header': Header,
-    'app-footer': Footer,
-    'app-server-details': ServerDetails,
-    'app-servers': Servers,
+    "app-header": Header,
+    "app-footer": Footer,
+    "app-server-details": ServerDetails,
+    "app-servers": Servers,
+  },
+  methods: {
+    showDetail(server) {
+      let that = this;
+      that.server = server;
+    },
   },
 };
 </script>
