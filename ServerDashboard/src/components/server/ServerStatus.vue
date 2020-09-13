@@ -9,10 +9,13 @@
     <button class="btn btn-sm btn-outline-primary" @click="changeStatus()">
       Switch
     </button>
-    <button @click="$emit('showDetail', server)">check</button>
+    <!-- <button @click="$emit('showDetail', server)">check</button> -->
+    <!-- use event bus -->
+    <button @click="checkDetails()">Check by event bus</button>
   </div>
 </template>
 <script>
+import { eventBus } from "../../main.js";
 export default {
   props: ["server"],
   data() {
@@ -25,6 +28,11 @@ export default {
       let that = this;
       that.status = that.status == "ON" ? "OFF" : "ON";
       that.server.status = that.status;
+    },
+    checkDetails() {
+      let that = this;
+      // eventBus.$emit("checkDetails", that.server);
+      eventBus.checkDetails(that.server);
     },
   },
 };

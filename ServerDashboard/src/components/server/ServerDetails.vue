@@ -8,7 +8,16 @@
 </template>
 <script>
 export default {
+  data: function () {
+    return { myServer: { id: "unknown", status: "unknown" } };
+  },
   props: ["server"],
+  created() {
+    let that = this;
+    that.$on("wasShowedDetails", (server) => {
+      that.myServer = server;
+    });
+  },
 };
 </script>
 <style scoped>
